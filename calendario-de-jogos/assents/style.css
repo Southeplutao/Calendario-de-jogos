@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --card-color-primary: #746615;
+    --card-title-border-color: #f7dd43;
+    --card-backgroud-color: #1d1c19;
+    --bg: url(.assents/bg-yellow.svg);
+}
+
+body.blue {
+    --card-color-primary: #338AF3;
+    --card-title-border-color: #338AF3;
+    --card-backgroud-color: #202024;
+}
+
+body.green {
+    --card-color-primary: #047c3f;
+    --card-title-border-color: #047c3f;
+    --card-backgroud-color: #1A1F1B;
+}
+
+ul { 
+    list-style: none;
+}
+
+header{
+    margin-bottom: 63px;
+    margin-top: auto;
+    text-align: center;
+    padding: 32px 23px;
+}
+
+body {
+    background:  var(--card-backgroud-color) url(./bg-blue.svg) no-repeat top center/cover;
+}
+
+body * {
+    font-family: "Roboto", sans-serif;
+}
+
+#app {
+    width: fit-content;
+    margin: auto;
+    padding-top: 52px;
+}
+
+#cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.card {
+    padding: 32px 23px;
+    text-align: center;
+
+    border-radius: 6px;
+    border-bottom: 2px solid var(--card-color-primary);
+    background: var(--card-backgroud-color);
+}
+
+.card h2{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+
+    padding: 8px 16px;
+    border: 1px solid var(--card-title-border-color);
+    border-radius: 6px;
+
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 53px;
+
+    color: #f7dd43;
+    font-weight: 700;
+}
+
+.card h2 span {
+    color: aliceblue;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 6px;
+}
+
+.card ul{
+    display:flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 270px;
+}
+
+.card ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card ul li + li{
+    padding-top: 24px;
+    border-top: 2px solid #323238;
+}
+
+.card ul li strong{
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 125%;
+
+    color: #e1e1e6;
+}
+
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover{
+    transform: scale(1.1);
+}
+
+.card ul li strong:hover,
+.card ul li img:hover{
+    transition: transform 0.3s;
+}
+
+.card {
+    opacity: 0;
+    animation: appear 1s forwards;
+}
+
+.card:nth-child(2) {
+    animation-delay: .2s;
+}
+
+@keyframes appear {
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@media (min-width: 700px){
+    #cards{
+        max-width: 670px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
